@@ -47,7 +47,7 @@ ENV DDDDOCR_OLD=false          # 是否使用旧版 OCR 模型
 ENV DDDDOCR_BETA=false         # 是否使用 Beta 版 OCR 模型
 ENV DDDDOCR_USE_GPU=false      # 是否使用 GPU 加速
 ENV DDDDOCR_DEVICE_ID=0        # GPU 设备 ID
-ENV DDDDOCR_SHOW_AD=true       # 是否显示广告
+ENV DDDDOCR_SHOW_AD=false       # 是否显示广告
 
 # 自定义模型配置（需要挂载卷才能访问）
 ENV DDDDOCR_IMPORT_ONNX_PATH="" # 自定义模型路径
