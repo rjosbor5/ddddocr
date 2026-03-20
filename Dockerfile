@@ -36,22 +36,34 @@ ENV PYTHONPATH=/app
 # 这些环境变量可以在 docker run 或 docker-compose 中覆盖
 
 # API 服务器配置
-ENV DDDDOCR_HOST=0.0.0.0       # 监听所有网络接口
-ENV DDDDOCR_PORT=8000          # 服务运行端口
-ENV DDDDOCR_WORKERS=1          # API 服务工作进程数
+# 监听所有网络接口
+ENV DDDDOCR_HOST=0.0.0.0
+# 服务运行端口
+ENV DDDDOCR_PORT=8000
+# API 服务工作进程数
+ENV DDDDOCR_WORKERS=1
 
 # OCR 引擎配置
-ENV DDDDOCR_OCR=true           # 是否启用 OCR 功能
-ENV DDDDOCR_DET=false          # 是否启用目标检测功能
-ENV DDDDOCR_OLD=false          # 是否使用旧版 OCR 模型
-ENV DDDDOCR_BETA=false         # 是否使用 Beta 版 OCR 模型
-ENV DDDDOCR_USE_GPU=false      # 是否使用 GPU 加速
-ENV DDDDOCR_DEVICE_ID=0        # GPU 设备 ID
-ENV DDDDOCR_SHOW_AD=false       # 是否显示广告
+# 是否启用 OCR 功能
+ENV DDDDOCR_OCR=true
+# 是否启用目标检测功能
+ENV DDDDOCR_DET=false
+# 是否使用旧版 OCR 模型
+ENV DDDDOCR_OLD=false
+# 是否使用 Beta 版 OCR 模型
+ENV DDDDOCR_BETA=false
+# 是否使用 GPU 加速
+ENV DDDDOCR_USE_GPU=false
+# GPU 设备 ID
+ENV DDDDOCR_DEVICE_ID=0
+# 是否显示广告
+ENV DDDDOCR_SHOW_AD=false
 
 # 自定义模型配置（需要挂载卷才能访问）
-ENV DDDDOCR_IMPORT_ONNX_PATH="" # 自定义模型路径
-ENV DDDDOCR_CHARSETS_PATH=""    # 自定义字符集路径
+# 自定义模型路径
+ENV DDDDOCR_IMPORT_ONNX_PATH=""
+# 自定义字符集路径
+ENV DDDDOCR_CHARSETS_PATH=""
 
 # 暴露端口（与 DDDDOCR_PORT 环境变量保持一致）
 EXPOSE 8000
