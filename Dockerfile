@@ -13,7 +13,6 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential \
     curl \
-    libgl1-mesa-glx \
     libglib2.0-0 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
@@ -70,19 +69,7 @@ EXPOSE 8000
 
 # 容器启动时执行的命令，使用 python -m ddddocr api 启动 API 服务
 # 参数从环境变量读取
-CMD python -m ddddocr api \
-    --host=${DDDDOCR_HOST} \
-    --port=${DDDDOCR_PORT} \
-    --workers=${DDDDOCR_WORKERS} \
-    --ocr=${DDDDOCR_OCR} \
-    --det=${DDDDOCR_DET} \
-    --old=${DDDDOCR_OLD} \
-    --beta=${DDDDOCR_BETA} \
-    --use-gpu=${DDDDOCR_USE_GPU} \
-    --device-id=${DDDDOCR_DEVICE_ID} \
-    --show-ad=${DDDDOCR_SHOW_AD} \
-    --import-onnx-path=${DDDDOCR_IMPORT_ONNX_PATH} \
-    --charsets-path=${DDDDOCR_CHARSETS_PATH}
+CMD ["sh", "-c", "python -m ddddocr api --host=${DDDDOCR_HOST} --port=${DDDDOCR_PORT} --workers=${DDDDOCR_WORKERS} --ocr=${DDDDOCR_OCR} --det=${DDDDOCR_DET} --old=${DDDDOCR_OLD} --beta=${DDDDOCR_BETA} --use-gpu=${DDDDOCR_USE_GPU} --device-id=${DDDDOCR_DEVICE_ID} --show-ad=${DDDDOCR_SHOW_AD} --import-onnx-path=${DDDDOCR_IMPORT_ONNX_PATH} --charsets-path=${DDDDOCR_CHARSETS_PATH}"]
 
 # 健康检查，确保容器正常运行
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
